@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Взыимодецствие с DOM</title>
+  <style>
+    #cvadrImg {
+      position: absolute;
+    }
+    #boxImg{
+      position: absolute;
+      margin-top: 15rem;
+    }
+    .box1{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <img src="/img/cvadr.png" alt="Квадракоптер" id="cvadrImg">
+  </div><br>
+  <div class="box1">
+    <img src="/img/box.png" alt="Коробка" id="boxImg">
+  </div>
+  <script>
+    let cvadrImg = document.getElementById("cvadrImg");
+    let boxImg = document.getElementById("boxImg");
+    let step = 0;
+    let flag = true;
+
+    let stepBox = 0;
+    let flagBox = true;
+
+    
+
+    function animation() {
+      if (window.innerWidth - 392 > step && flag) {
+        cvadrImg.style.transform = "scaleX(1)";
+        step += 1;
+      } else {
+        cvadrImg.style.transform = "scaleX(-1)";
+        step -= 1;
+        flag = step == 0 ? true : false;
+      }
+        if (Math.round(window.innerWidth / 2) == step + 200) {
+          function animation1() {
+      if (window.innerHeight - 428 > stepBox && flagBox) {
+        stepBox += 1;
+      } else {      
+        stepBox.end = 0;
+      }
+      boxImg.style.top = stepBox + "px";
+    }
+    setInterval (animation1, 10);  
+        }
+      cvadrImg.style.left = step + "px";
+    }
+    setInterval (animation, 10);
+
+   
+  </script>
+</body>
+</html>

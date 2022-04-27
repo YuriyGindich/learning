@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тернарный оператор, методымассивов</title>
+</head>
+<body>
+  <script>
+    // let a = 5;
+    // let b = 7;
+    // let c; 
+
+    // if (a < b) {
+    //   c = a;
+    // }else {
+    //   c = b;
+    // }
+
+    // a < b ? c = a : c = b;  //длинныфй вариант
+
+    // c = a < b ? a : b;  //Короткий вариант
+
+    // console.log(c);
+
+    // let cars = ["Audi", "Ford", "BMW","Opel"];
+
+    // cars[3] = "Opel";
+    // cars[10]= "byd"; //Так делать не очень хорошо
+    // cars[cars.length] = "Byd";
+
+    // cars.push("Aston Martin"); //добавляет в конец
+    // cars.push("Opel", "Mercedes", "Aston Martin");
+    // cars.unshift("Opel", "Mercedes", "Aston Martin"); // Добавляет в начало
+    // cars.pop(); // Удаляет с конца
+    // delete cars[2];// очищает, но не изменяет длину массива
+
+    // let car = cars.pop();
+    // console.log(car);
+    // cars.shift();//Удаляет с начала массива
+
+    // let some = cars.splice(1, 2);
+    // console.log(some);// удаляем
+
+    // cars.splice(1, 0, "Another car"); Длбавляем с начала
+    // cars.splice(-1, 0, "Another car");Добавляем элементы с конца
+    // cars.reverse();//изменяет порядок на обратный
+
+    // console.log(cars);
+    // console.log(cars.length);
+
+    // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 4];
+    // function addSpecialNumbers (numbers) {
+    //   let specialNumbers = [];
+    //   for(let i = 0; i < numbers.length; i++) {
+    //     if (numbers[i] % 3 == 0){
+    //       specialNumbers.push(numbers[i]);
+    //     }
+    //   }
+    //   return specialNumbers;
+    // }
+
+    // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 4];
+
+    // function addSpecialNumbers (numbers) {
+    //   let specialNumbers = [];
+    //   numbers.forEach(function (num) {
+    //     if (num % 3 == 0) {
+    //       specialNumbers.push(num);
+    //     }
+    //   });
+    //   return specialNumbers;
+    // }
+
+    // function addSpecialNumbers(numbers) {
+    //   let result = numbers.filter(function (num) {
+    //     if (num % 3 == 0) {
+    //       return true;
+    //     }
+
+    //     // return false;
+    //   });
+    //   return result;
+    // }
+    // console.log(addSpecialNumbers(arr));
+      let arr = [77, 2, 4, 6, 7, 9, 5, 1, 3];
+      
+      console.log(arr);
+
+    //     function sortArr (numbers) {
+    //       let copy = [...numbers];
+    //       copy.sort(function (a, b) {
+    //         // if (a > b) return 1;
+    //        // else return -1;
+    //         return a < b ? 1 : -1;
+    //       });
+    //     // numbers.sort(function (a, b) {
+    //   return copy;
+    // }
+
+    
+    // function sortArr (numbers) {
+    //   function compare(a, b) {
+    //     return a < b ? 1 : -1;
+    //   }
+    //   return numbers.slice().sort(compare);  //применяем метод sort на копии исходного массива
+    // }
+    // console.log(sortArr(arr));
+    // console.log(arr);
+    console.log(
+    arr.reduce( function (acc, num) {
+      return acc + num
+    }, 0)
+    );
+
+    let initArr = [1, 4, 5, 8, [2, 3, 5], 88, 4, 5, [88]];
+    function flatArray (array) {
+      return array.flat();
+    }
+    console.log(flatArray(initArr));
+  </script>
+</body>
+</html>

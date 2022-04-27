@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag & Drop</title>
+  <style>
+    #dragElement {
+      width: 150px;
+      height: 150px;
+      background-color: darkgoldenrod;
+      /* position: absolute; */ 
+    }
+  </style>
+</head>
+<body>
+  <div id="dragElement"></div>
+  <!-- <button id="disableBtn">Заблокировать изменение цвета</button> -->
+
+  <script>
+    let dragElement = document.getElementById("dragElement");
+    // let disableBtn = document.getElementById("disableBtn");
+    dragElement.style.position = "absolute";
+
+    dragElement.onmousedown = function() {
+      document.addEventListener("mousemove", moveElem);
+      document.onmouseup = function () {
+        document.removeEventListener ("mousemove", moveElem);
+      };
+    };
+
+    function moveElem(event) {
+      let x = event.clientX - 75;
+      let y = event.clientY - 75;
+
+      dragElement.style.top = y + "px";
+      dragElement.style.left = x + "px";
+    };
+
+    ball.ondragstart = function() {
+      return false;
+    };
+    // function changeColor() {
+      
+    //   let red = Math.round(Math.random()*255);
+    //   let green = Math.round(Math.random()*255);
+    //   let blue = Math.round(Math.random()*255);
+
+    //   dragElement.style.background= `rgb(${red}, ${green}, ${blue}`;
+    // }
+    // dragElement.addEventListener("click", changeColor);
+
+    // disableBtn.addEventListener("click", function() {
+    //   dragElement.removeEventListener("click", changeColor);
+    // });
+
+    // function clickHandler() {
+    //   console.log("Вызвана функция clickHandler()")
+    // }
+
+    // dragElement.addEventListener("click",function() {
+    //   console.log("Вызвана функция clickHandler()");
+    // });
+
+    // dragElement.addEventListener("click", clickHandler);
+
+    // // dragElement.onclick = function() {
+    // //   console.log("Клик по элементу");
+
+    // }
+
+  </script>
+</body>
+</html>

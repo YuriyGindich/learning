@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медиазапросы</title>
+    <style>
+      .container {
+        width: 1200px;
+        margin: auto;
+      }
+      .block {
+        display: inline-block;
+        width: 400px;
+      }
+      .invisible-block {
+        display: none;
+      }
+      @media (max-width: 991px) {
+        .container {
+          width: 100%;
+        }
+        .block {
+          display: block;
+          width: 100%;
+          font-size: 1.2rem;  
+        }
+        .block img {
+          max-width: 100%;
+          height: 100%;
+        }
+
+     }
+      @media (max-width: 420px) {
+        .invisible-block {
+          display: block;
+          font-size: 2rem;
+        }
+      }   
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="block"><img src="/img/005.jpg" alt="Фото" width="400"></div>
+    <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatum, corrupti totam impedit sunt autem neque voluptatibus illo recusandae repellat reprehenderit obcaecati possimus. Facilis corporis perspiciatis dolorem officia saepe id?</div>
+    <div class="invisible-block">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id autem enim quibusdam, pariatur cupiditate, ducimus nulla laborum harum ipsum voluptatem, nostrum sint suscipit fugit. Voluptates sapiente exercitationem asperiores suscipit culpa!</div>
+  </div>
+      
+</body>
+</html>

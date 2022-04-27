@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  
+  <body>
+    <h1>Какойто контент</h1>
+  </body>
+</html>
+
+
+function f(n) {
+      if (n > 2) return f(n - 1) + f(n - 2);
+    }else {
+      return 1;  
+    }
+
+    f(5) = f(4) + f(3) = 3 + 2 = 5
+    f(4) = f(3) + f(2) = 2 + 1 = 3
+    f(3) = f(2) + f(1) = 1 + f(1) = 1 + 1 = 2
+    f(2) = 1
+    f(1) = 1
+
+    function f(n){
+      if (n > 3) return f(n - 2) + f(n / 2);
+    }else return n;
+
+    console.log(f(9));
+    
+    f(9) = f(7) + f(4.5)
+    f 

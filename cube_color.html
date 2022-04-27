@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <title>Квадраты,цвет и не только</title>
+  <style>
+
+    div[id$='bix'] {
+      cursor: pointer;
+      /* filter: contrast(150%); */
+      width: 150px;
+      height: 150px;
+      /* margin-top: 0.5rem; */
+      /* position: absolute; */
+    }
+    #b1-bix {
+      background-color: aquamarine;
+      
+    }
+    #b2-bix {
+      background-color: plum;
+    }
+    #b3-bix {
+      background-color: chocolate;
+    }
+    #cub {
+      width: 300px;
+      height: 300px;
+      background-color: gray;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-6">
+        <div id="b1-bix" class="box"></div>
+        <div id="b2-bix" class="box"></div>
+        <div id="b3-bix" class="box"></div>
+      </div>
+      <div class="col-lg-6">
+        <div id="cub"></div>
+      </div>
+      </div>
+  </div>
+
+  <script>
+    let cubes = document.querySelectorAll("div[class='box']");
+
+    for (cube of cubes) {
+      cube.style.position = "absolute";
+      cube.onmousedown = function(event) {
+        let cube = event.currentTarget;
+        document.addEventListener("mousemove", moveElem);
+        document.onmouseup = function () {
+          document.removeEventListener ("mousemove", moveElem);
+        };
+
+        function moveElem(event) {
+          let x = event.clientX - 75;
+          let y = event.clientY - 75;
+
+          cube.style.top = y + "px";
+          cube.style.left = x + "px";
+        };
+
+      };
+    }
+
+    for (bill of bills) {
+      bill.onmousedown = function (e) {
+        bill = e.currentTarget;
+        bill.style.position = "absolute";
+        bill.style.zIndex = 1000;
+        bill.style.transform = "rotate(90deg)";
+        //Устанавливаем слушателя на событие mousemove
+        document.addEventListener("mousemove", moveAt);
+
+        //Удаляем слушателя по событию mousemove
+        bill.onmouseup = function () {
+          document.removeEventListener("mousemove", moveAt);
+          bill.style.zIndex = 1;
+          
+          let bill_top = bill.getBoundingClientRect().top;
+          let bill_left = bill.getBoundingClientRect().left;
+          let bill_right = bill.getBoundingClientRect().right;
+          let bill_acc_top = bill_acc.getBoundingClientRect().top;
+          let bill_acc_left = bill_acc.getBoundingClientRect().left;
+          let bill_acc_right = bill_acc.getBoundingClientRect().right;
+          let bill_acc_bottom = bill_acc.getBoundingClientRect().bottom - (bill_acc.getBoundingClientRect().height / 3) * 2;
+          
+          if ( bill_top > bill_acc_top && bill_left > bill_acc_left &&  bill_right < bill_acc_right && bill_top < bill_acc_bottom) {
+            bill.hidden = true;
+            money.value = +money.value + +bill.dataset.billValue;
+          }
+        };
+        
+        //Отменяем стандартное поведение браузера
+        bill.ondragstart = function () {
+          return false;
+        };
+        //Движение и позиционирование купюры
+        function moveAt(event) {
+          let x = event.clientX - 149;
+          let y = event.clientY - 62;
+          bill.style.top = y + "px";
+          bill.style.left = x + "px";
+        }
+      };
+    }
+
+    
+
+    
+
+    // for (bill of bills) {
+    //   bill.onmousedown = function (e) {
+    //   bill = e.currentTarget;
+    //   bill.style.position = "absolute";
+    //   bill.style.zIndex = 1000;
+    //   bill.style.transform = "rotate(90deg)";
+    //   //Устанавливаем слушателя на событие mousemove
+    //   document.addEventListener("mousemove", moveAt);
+    //   //Удаляем слушателя по событию mousemove
+    //     bill.onmouseup = function () {
+    //       document.removeEventListener("mousemove", moveAt);
+    //       bill.style.zIndex = 1;
+    //     };
+    //   }
+  
+
+  </script>
+</body>
+</html>
